@@ -16,23 +16,30 @@ public class EmpDao {
 	    this.template = template;  
 	}  
 	public int save(AddModel p){  
-	    String sql="insert into employee(id,name,salary,department) values('"+p.getId()+"',"+p.getName()+",'"+p.getSalary()+"',"+p.getDepartment()+")";
+	    String sql="insert into employee values(?,?,?,?)";
 	            
-	    return template.update(sql);  
+	    return template.update(sql,p.getId(),p.getName(),p.getSalary(),p.getDepartment());  
 	} 
 	
 	public List<AddModel> getEmployees(){  
-	    return template.query("select * from employee",new RowMapper<AddModel>(){  
-	        public AddModel mapRow(ResultSet rs, int row) throws SQLException {  
-	            AddModel e=new AddModel();  
-	            e.setId(rs.getInt(1));  
-	            e.setName(rs.getString(2));  
-	            e.setSalary(rs.getDouble(3));  
-	            e.setDepartment
-	            (rs.getString(4));  
-	            return e;  
-	        }  
-	    });  
+		
+		String sql = "select * from employee";
+		
+		RowMapper<AddModel> rowMapper = new RowMapper<AddModel>() {
+
+			public AddModel mapRow(ResultSet rs, int rowNum) throws SQLException {
+				  AddModel e=new AddModel();  
+		            e.setId(rs.getInt(1));  
+		            e.setName(rs.getString(2));  
+		            e.setSalary(rs.getDouble(3));  
+		            e.setDepartment(rs.getString(4));
+		              
+		            return e;  
+			}
+		};
+		
+		 List<AddModel> addModels = template.query(sql,rowMapper);  
+		 return addModels;
 
 }
 }
