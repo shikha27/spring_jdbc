@@ -1,11 +1,13 @@
 package com.employee.Controller;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 //import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -15,7 +17,8 @@ import com.employee.Model.AddModel;
 @Controller
 public class AddEmployeeController {
 	@Autowired  
-    EmpDao dao;
+	EmployeeDAOImpl dao;
+	
 	@RequestMapping(value="/addModel", method=RequestMethod.GET)
 	public ModelAndView registerdata(){
 		
@@ -30,6 +33,8 @@ public class AddEmployeeController {
 		
 	}
 	
+	
+	//add n save
 	@RequestMapping(value = "/AddEmployee", method = RequestMethod.POST)
 	public ModelAndView adEmployee(@ModelAttribute("addmodel")AddModel emp){
 		dao.save(emp);
@@ -37,12 +42,45 @@ public class AddEmployeeController {
 		
 	}
 	
+	
+	//viewall
 	 @RequestMapping(value="/ViewEmployee")  
-	    public ModelAndView viewEmployee(){  
-	        List<AddModel> list=dao.getEmployees();  
+	    public ModelAndView viewEmployee() throws SQLException{  
+	        List<AddModel> list=dao.getAll();  
 	        return new ModelAndView("ViewEmployee","list123",list);  
 	    }  
-	
+	 
+	 
+	 //edit rendering to edit jsp
+	 
+	 
+	 
+	 
+	 @RequestMapping(value = "/Update/{id}", method = RequestMethod.GET)
+	 public ModelAndView editemployee(@PathVariable int id) throws SQLException {
+		 dao.getById(id);
+		 return new ModelAndView("Update");
+		 
+	 }
+	 
+	 
+	 
+	 //update
+	 @RequestMapping(value= "/Update", method = RequestMethod.POST)
+	 public ModelAndView updateEmployee(@ModelAttribute("addmodel")AddModel emp) {
+		 dao.update(emp);
+		 return new ModelAndView("redirect:/ViewEmployee");
+		 
+	 }
+	 
+	 //delete by id
+	 
+	 @RequestMapping(value = "/deleteemp/{id}", method= RequestMethod.GET)
+	public ModelAndView deleteemployee(@PathVariable int id) throws SQLException {
+		 dao.deleteById(id);
+		 return new ModelAndView("redirect:/ViewEmployee");
+		 
+	 }
 	
 	
 	
