@@ -11,10 +11,10 @@
 	<table style="width: 100%">
 		<tr>
 			<td><h2 style="background-color: LightGray;">
-					<a href="AddEmployee.jsp">Add Employee</a>
+					<a href="AddEmployee">Add Employee</a>
 				</h2></td>
 			<td><h2 style="background-color: LightGray;">
-					<a href="ViewEmployee.jsp">View Employee</a>
+					<a href="ViewEmployee">View Employee</a>
 				</h2></td>
 		</tr>
 	</table>
