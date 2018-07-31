@@ -1,6 +1,6 @@
-package com.employee.Model;
+package com.employee.model;
 
-public class AddModel {
+public class Employee {
 	int id;
 	String name;
 	Double salary;

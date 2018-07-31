@@ -16,7 +16,7 @@ input[type=text] {
 </head>
 <body>
 	<h1>ADD EMPLOYEE DETAILS</h1>
-	<form method="POST" action="/employee_repository/AddEmployee">
+	<form method="POST" action="add">
 		<label for="id">Id</label> <input type="text" name="id"> <label
 			for="name">Name</label> <input type="text" name="name"> <label
 			for="salary">Salary</label> <input type="text" name="salary">
