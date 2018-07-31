@@ -27,7 +27,7 @@ public class EmployeeController {
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public ModelAndView create(@ModelAttribute("Employee") Employee employee) {
+	public ModelAndView create(@ModelAttribute("Employee") Employee employee) throws SQLException {
 		employeeService.create(employee);
 		return new ModelAndView("redirect:/employee/all");
 	}
@@ -45,7 +45,7 @@ public class EmployeeController {
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public ModelAndView updateEmployee(@ModelAttribute("Employee") Employee employee) {
+	public ModelAndView updateEmployee(@ModelAttribute("Employee") Employee employee) throws SQLException {
 		employeeService.update(employee);
 		return new ModelAndView("redirect:/employee/all");
 

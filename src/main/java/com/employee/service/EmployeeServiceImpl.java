@@ -15,7 +15,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Autowired
 	EmployeeRepository employeeRepository;
 
-	public void create(Employee employee) {
+	public void create(Employee employee) throws SQLException {
 		employeeRepository.create(employee);
 	}
 
@@ -23,7 +23,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeRepository.getAllEmployees();
 	}
 
-	public void delete(int id) {
+	public void delete(int id) throws SQLException {
 		employeeRepository.delete(id);
 	}
 
@@ -32,7 +32,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeRepository.getEmployeeById(id);
 	}
 
-	public void update(Employee employee) {
+	public void update(Employee employee) throws SQLException {
 		employeeRepository.update(employee);
 		
 	}
