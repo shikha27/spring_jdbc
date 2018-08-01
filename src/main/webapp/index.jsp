@@ -13,8 +13,23 @@
 			<td><h2 style="background-color: LightGray;">
 					<a href="employee/add">Add Employee</a>
 				</h2></td>
+		</tr>
+		<br>
+		<tr>
 			<td><h2 style="background-color: LightGray;">
 					<a href="employee/all">View Employee</a>
+				</h2></td>
+		</tr>
+		<br>
+		<tr>
+			<td><h2 style="background-color: LightGray;">
+					<a href="department/add">Add Department</a>
+				</h2></td>
+		</tr>
+		<br>
+		<tr>
+			<td><h2 style="background-color: LightGray;">
+					<a href="department/all">View Department</a>
 				</h2></td>
 		</tr>
 	</table>

@@ -25,7 +25,7 @@ public class EmployeeController {
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public ModelAndView renderAddEmployee() {
-		return new ModelAndView("employee_add");
+		return new ModelAndView("employee/employee_add");
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
@@ -37,13 +37,13 @@ public class EmployeeController {
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	public ModelAndView getAllEmployee() throws SQLException {
 		List<Employee> employees = employeeService.getAllEmployees();
-		return new ModelAndView("employee_view", "multipleEmployees", employees);
+		return new ModelAndView("employee/employee_view", "multipleEmployees", employees);
 	}
 
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
 	public ModelAndView renderEditemployee(@PathVariable int id) throws SQLException {
 	Employee employee =	employeeService.getEmployeeById(id);
-		return new ModelAndView("employee_update", "singleEmployee", employee);
+		return new ModelAndView("employee/employee_update", "singleEmployee", employee);
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)

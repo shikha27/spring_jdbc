@@ -21,7 +21,9 @@ input[type=text] {
 			for="name">Name</label> <input type="text" name="name"> <label
 			for="salary">Salary</label> <input type="text" name="salary">
 		<label for="department">Department</label> <input type="text"
-			name="department"><br> <br> <input type="submit"
+			name="department"><label for="departmentid">Department Id</label> <input type="text"
+			name="departmentid">
+			<br> <br> <input type="submit"
 			value="Submit">
 
 	</form>

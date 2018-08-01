@@ -1,10 +1,12 @@
 package com.employee.model;
 
 public class Employee {
+
 	int id;
 	String name;
 	Double salary;
 	String department;
+	int departmentid;
 
 	public int getId() {
 		return id;
@@ -36,6 +38,14 @@ public class Employee {
 
 	public void setDepartment(String department) {
 		this.department = department;
+	}
+
+	public int getDepartmentid() {
+		return departmentid;
+	}
+
+	public void setDepartmentid(int departmentid) {
+		this.departmentid = departmentid;
 	}
 
 }
