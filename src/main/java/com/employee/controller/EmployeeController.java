@@ -20,6 +20,8 @@ public class EmployeeController {
 
 	@Autowired
 	EmployeeService employeeService;
+	
+	
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public ModelAndView renderAddEmployee() {
@@ -48,7 +50,6 @@ public class EmployeeController {
 	public ModelAndView updateEmployee(@ModelAttribute("Employee") Employee employee) throws SQLException {
 		employeeService.update(employee);
 		return new ModelAndView("redirect:/employee/all");
-
 	}
 
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)

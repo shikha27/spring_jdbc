@@ -6,7 +6,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>Employee List</h2>
+	<h2>EMPLOYEE LIST</h2>
 
 	<table border="2" width="70%" cellpadding="2">
 

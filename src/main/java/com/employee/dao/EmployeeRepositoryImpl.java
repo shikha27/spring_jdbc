@@ -7,19 +7,20 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.employee.model.*;
 
+@Repository
 public class EmployeeRepositoryImpl implements EmployeeRepository {
-	Connection connection = null;
-	PreparedStatement preparedStatement = null;
 
+	private Connection connection = null;
+	private PreparedStatement preparedStatement = null;
+
+	@Autowired
 	private DataSource dataSource;
-
-	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
-	}
 
 	public void update(Employee employee) throws SQLException {
 		String query = "update employee set name=?, salary=?, department=? where id=?";
@@ -41,9 +42,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
 	public Employee getEmployeeById(int id) throws SQLException {
 		String query = "select* from employee where id=?";
-
 		Employee emp = null;
-
 		ResultSet rs = null;
 
 		connection = dataSource.getConnection();
