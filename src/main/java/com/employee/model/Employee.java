@@ -2,12 +2,16 @@ package com.employee.model;
 
 public class Employee {
 
-	int id;
+	public int id;
 	String name;
 	Double salary;
 	String department;
 	int departmentid;
-
+	 
+	
+	public Employee() {
+		
+	}
 	public int getId() {
 		return id;
 	}

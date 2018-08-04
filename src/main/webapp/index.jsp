@@ -7,7 +7,7 @@
 <title>Employee Management System</title>
 </head>
 <body style="background-color: powderblue;">
-
+<h1 style="background-color: LightGray;">EMPLOYEE MANAGEMENT SYSTEM</h1>
 	<table style="width: 100%">
 		<tr>
 			<td><h2 style="background-color: LightGray;">

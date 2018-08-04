@@ -14,7 +14,7 @@ input[type=text] {
 </style>
 </head>
 <body>
-	<h1>UPDATE EMPLOYEE DETAILS</h1>
+	<h1 style="background-color: LightGray;">UPDATE EMPLOYEE DETAILS</h1>
 	<form method="POST" action="/employee_repository/employee/update">
 		<label for="id">Id</label> <input type="hidden" value="${singleEmployee.id}" name="id"> <label
 			for="name">Name</label> <input type="text" value="${singleEmployee.name}" name="name"> <label

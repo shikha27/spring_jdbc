@@ -24,6 +24,21 @@ public class DepartmentServiceImpl implements DepartmentService{
 		
 		return departmentRepository.getAllDepartments();
 	}
+
+	public void delete(int id) throws SQLException {
+		departmentRepository.delete(id);
+		
+	}
+
+	public Department getDepartmentById(int id) throws SQLException {
+		
+		return departmentRepository.getDepartmentById(id);
+	}
+
+	public void update(Department dept) throws SQLException {
+		departmentRepository.update(dept);
+		
+	}
 	
 
 }

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 
 import com.department.model.Department;
 
+
 @Repository
 public class DepartmentRepositoryImpl implements DepartmentRepository{
 
@@ -22,10 +23,29 @@ public class DepartmentRepositoryImpl implements DepartmentRepository{
 	@Autowired
 	private DataSource dataSource;
 
+	
+	
+	private int getMaxId() throws SQLException {
+		int id=0;
+		String query= "select max(id) as id from department order by id desc";
+		ResultSet rs = null;
+
+		connection = dataSource.getConnection();
+		preparedStatement = connection.prepareStatement(query);
+		rs= preparedStatement.executeQuery();
+		rs.next();
+		id= rs.getInt("id");
+		return id;
+		
+	}
+	
+	
 	public void create(Department department) throws SQLException {
 		
 		String query = "insert into department values(?,?,?,?)";
 
+		int id = getMaxId();
+		department.setId(++id);
 		connection = dataSource.getConnection();
 		preparedStatement = connection.prepareStatement(query);
 		preparedStatement.setInt(1, department.getId());
@@ -62,10 +82,70 @@ public class DepartmentRepositoryImpl implements DepartmentRepository{
 		return departmentList;
 	}
 
+	public void update(Department department) throws SQLException {
+		String query = "update department set name=?, location=?, bonus=? where id=?";
+
+		connection = dataSource.getConnection();
+		preparedStatement = connection.prepareStatement(query);
+		preparedStatement.setString(1, department.getName());
+		preparedStatement.setString(2, department.getLocation());
+		preparedStatement.setInt(3, department.getBonus());
+		
+		preparedStatement.setInt(4, department.getId());
+		
+
+		int out = preparedStatement.executeUpdate();
+		if (out != 0) {
+			System.out.println("Department updated with id=" + department.getId());
+		} else
+			System.out.println("No Department found with id=" + department.getId());
+
+	}
+		
+	
+
+	public void delete(int id) throws SQLException {
+		String query = "delete from department where id=?";
+
+		connection = dataSource.getConnection();
+		preparedStatement = connection.prepareStatement(query);
+		preparedStatement.setInt(1, id);
+		int out = preparedStatement.executeUpdate();
+		if (out != 0) {
+			System.out.println("Department deleted with id=" + id);
+		} else
+			System.out.println("No department found with id=" + id);
+	}
+		
+	
+
+	public Department getDepartmentById(int id) throws SQLException {
+		String query = "select* from department where id=?";
+		Department dept = null;
+		ResultSet rs = null;
+
+		connection = dataSource.getConnection();
+		preparedStatement = connection.prepareStatement(query);
+
+		preparedStatement.setInt(1, id);
+		rs = preparedStatement.executeQuery();
+		while (rs.next()) {
+			dept = new Department();
+			dept.setId(id);
+			dept.setName(rs.getString("name"));
+			dept.setLocation(rs.getString("location"));
+			dept.setBonus(rs.getInt("bonus"));
+          
+		}
+
+		return dept;
+	}
+	}
+
 	
 	
 		
-	}
+	
 	
 
 

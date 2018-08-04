@@ -6,7 +6,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>DEPARTMENT LIST</h2>
+<h2 style="background-color: LightGray;">DEPARTMENT LIST</h2>
 
 	<table border="2" width="70%" cellpadding="2">
 
@@ -30,6 +30,7 @@
 		</c:forEach>
 	</table>
 	</br>
-	<a href="add">Add New Department</a>
+	<a href="add">Add New Department</a></br><br>
+	<a href="/employee_repository/index.jsp">HOME</a>
 </body>
 </html>

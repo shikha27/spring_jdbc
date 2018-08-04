@@ -2,7 +2,7 @@ package com.department.model;
 
 public class Department {
 	
-	private int id;
+	public int id;
 	private String name;
 	private String location;
 	private int bonus;

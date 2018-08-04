@@ -6,9 +6,12 @@ import java.util.List;
 import com.department.model.Department;
 
 
+
 public interface DepartmentRepository {
 	
 	public void create(Department department) throws SQLException;
 	public List<Department> getAllDepartments() throws SQLException;
-
+    public void update(Department department) throws SQLException;
+    public void delete(int id) throws SQLException;
+    public Department getDepartmentById(int id) throws SQLException;
 }

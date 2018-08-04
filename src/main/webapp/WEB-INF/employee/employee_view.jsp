@@ -6,11 +6,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>EMPLOYEE LIST</h2>
+	<h2 style="background-color: LightGray;">EMPLOYEE LIST</h2>
 
 	<table border="2" width="70%" cellpadding="2">
 
-		<tr>
+		<tr style="background-color: LightGray;">
 			<th>Id</th>
 			<th>Name</th>
 			<th>Salary</th>
@@ -32,6 +32,8 @@
 		</c:forEach>
 	</table>
 	</br>
-	<a href="add">Add New employees</a>
+	<a href="add">ADD NEW EMPLOYEES</a></br></br>
+	
+	<a href="/employee_repository/index.jsp">HOME</a>
 </body>
 </html>

@@ -15,9 +15,9 @@ input[type=text] {
 </style>
 </head>
 <body>
-	<h1>ADD EMPLOYEE DETAILS</h1>
+	<h1 style="background-color: LightGray;">ADD EMPLOYEE DETAILS</h1>
 	<form method="POST" action="add">
-		<label for="id">Id</label> <input type="text" name="id"> <label
+		 <label
 			for="name">Name</label> <input type="text" name="name"> <label
 			for="salary">Salary</label> <input type="text" name="salary">
 		<label for="department">Department</label> <input type="text"

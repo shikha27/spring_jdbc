@@ -63,6 +63,21 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
 		return emp;
 	}
+	
+	
+	private int getMaxId() throws SQLException {
+		int id=0;
+		String query= "select max(id) as id from employee order by id desc";
+		ResultSet rs = null;
+
+		connection = dataSource.getConnection();
+		preparedStatement = connection.prepareStatement(query);
+		rs= preparedStatement.executeQuery();
+		rs.next();
+		id= rs.getInt("id");
+		return id;
+		
+	}
 
 	public List<Employee> getAllEmployees() throws SQLException {
 		String query = "select* from employee";
@@ -89,7 +104,9 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 	public void create(Employee employee) throws SQLException {
 
 		String query = "insert into employee values(?,?,?,?,?)";
-
+		
+		int id = getMaxId();
+		employee.setId(++id);
 		connection = dataSource.getConnection();
 		preparedStatement = connection.prepareStatement(query);
 		preparedStatement.setInt(1, employee.getId());
