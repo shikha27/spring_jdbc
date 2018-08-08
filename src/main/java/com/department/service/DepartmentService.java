@@ -2,6 +2,7 @@ package com.department.service;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import com.department.model.Department;
 
@@ -14,5 +15,7 @@ public interface DepartmentService {
 	Department getDepartmentById(int id) throws SQLException;
 
 	void update(Department dept) throws SQLException;
+	
+	public Map<Integer, String> getDepartmentIdAndName() throws SQLException;
 
 }

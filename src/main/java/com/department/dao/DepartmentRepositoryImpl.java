@@ -5,7 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.sql.DataSource;
 
@@ -23,6 +25,27 @@ public class DepartmentRepositoryImpl implements DepartmentRepository{
 	@Autowired
 	private DataSource dataSource;
 
+	
+	public Map<Integer, String> getDepartmentIdAndName() throws SQLException {
+		
+		String query= "select id, name from department";
+		
+		Map<Integer,String> deptobj = new HashMap<Integer,String>();
+		
+		ResultSet rs = null;
+
+		connection = dataSource.getConnection();
+		preparedStatement = connection.prepareStatement(query);
+		rs= preparedStatement.executeQuery();
+		while (rs.next()) {
+			int id = rs.getInt("id");
+			String name=rs.getString("name");
+			deptobj.put(id, name);
+			}
+		return deptobj;
+		
+	}
+	
 	
 	
 	private int getMaxId() throws SQLException {

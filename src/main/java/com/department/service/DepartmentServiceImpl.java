@@ -2,6 +2,7 @@ package com.department.service;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,6 +39,11 @@ public class DepartmentServiceImpl implements DepartmentService{
 	public void update(Department dept) throws SQLException {
 		departmentRepository.update(dept);
 		
+	}
+
+	public Map<Integer, String> getDepartmentIdAndName() throws SQLException {
+		
+		return departmentRepository.getDepartmentIdAndName();
 	}
 	
 

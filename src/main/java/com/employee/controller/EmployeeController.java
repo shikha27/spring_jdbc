@@ -1,7 +1,9 @@
 package com.employee.controller;
 
 import java.sql.SQLException;
+
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.department.service.DepartmentService;
 import com.employee.model.Employee;
 import com.employee.service.EmployeeService;
 
@@ -20,12 +23,16 @@ public class EmployeeController {
 
 	@Autowired
 	EmployeeService employeeService;
-	
+	@Autowired
+	DepartmentService departmentService;
 	
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
-	public ModelAndView renderAddEmployee() {
-		return new ModelAndView("employee/employee_add");
+	public ModelAndView renderAddEmployee() throws SQLException {
+		
+		
+		Map<Integer, String> department= departmentService.getDepartmentIdAndName();
+		return new ModelAndView("employee/employee_add", "departments", department);
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
@@ -60,3 +67,4 @@ public class EmployeeController {
 	}
 
 }
+;

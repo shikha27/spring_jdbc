@@ -18,6 +18,7 @@
 			<th>Edit</th>
 			<th>Delete</th>
 		</tr>
+		${multipleDepartments}
 		<c:forEach var="department" items="${multipleDepartments}">
 			<tr>
 				<td>${department.id}</td>
@@ -29,8 +30,7 @@
 			</tr>
 		</c:forEach>
 	</table>
-	</br>
-	<a href="add">Add New Department</a></br><br>
+	<a href="add">Add New Department</a><br>
 	<a href="/employee_repository/index.jsp">HOME</a>
 </body>
 </html>
