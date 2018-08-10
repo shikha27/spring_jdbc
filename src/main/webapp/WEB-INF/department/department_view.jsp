@@ -6,7 +6,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2 style="background-color: LightGray;">DEPARTMENT LIST</h2>
+	<h2 style="background-color: LightGray;">DEPARTMENT LIST</h2>
 
 	<table border="2" width="70%" cellpadding="2">
 
@@ -18,7 +18,7 @@
 			<th>Edit</th>
 			<th>Delete</th>
 		</tr>
-		${multipleDepartments}
+
 		<c:forEach var="department" items="${multipleDepartments}">
 			<tr>
 				<td>${department.id}</td>
@@ -30,7 +30,8 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<a href="add">Add New Department</a><br>
+	<a href="add">Add New Department</a>
+	<br>
 	<a href="/employee_repository/index.jsp">HOME</a>
 </body>
 </html>
