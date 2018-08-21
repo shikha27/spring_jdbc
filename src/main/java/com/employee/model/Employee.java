@@ -5,7 +5,6 @@ public class Employee {
 	public int id;
 	String name;
 	Double salary;
-	String department;
 	int departmentid;
 	 
 	
@@ -34,14 +33,6 @@ public class Employee {
 
 	public void setSalary(Double salary) {
 		this.salary = salary;
-	}
-
-	public String getDepartment() {
-		return department;
-	}
-
-	public void setDepartment(String department) {
-		this.department = department;
 	}
 
 	public int getDepartmentid() {

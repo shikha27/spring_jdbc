@@ -19,8 +19,7 @@ input[type=text] {
 		<label for="id">Id</label> <input type="hidden" value="${singleEmployee.id}" name="id"> <label
 			for="name">Name</label> <input type="text" value="${singleEmployee.name}" name="name"> <label
 			for="salary">Salary</label> <input type="text" value="${singleEmployee.salary}" name="salary">
-		<label for="department">Department</label> <input type="text" value="${singleEmployee.department}"
-			name="department">
+		
 			<label for="departmentid">Department Id</label> <input type="text" value="${singleEmployee.departmentid}"
 			name="departmentid">
 			<br> <br> <input type="submit"

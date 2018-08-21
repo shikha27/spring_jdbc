@@ -21,15 +21,17 @@ input[type=text] {
 		<label for="name">Name</label> <input type="text" name="name">
 		<label for="salary">Salary</label> <input type="text" name="salary">
 
-		Department&nbsp;
-    <select name="department"><c:forEach var="department" items="${departments}">
-				<option >${department.key}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${department.value}</option>
-		</c:forEach>
-</select>
-<br/><br/>
-		<label for="departmentid">Department Id</label> <input type="text"
-			name="departmentid"> <br> <br> <input type="submit"
-			value="Submit">
+		Department&nbsp; 
+		<select name="departmentid">
+			<c:forEach
+				var="department" items="${departments}">
+				<option value="${department.key}" >${department.value}</option>
+			</c:forEach>
+		</select> 
+		<br />
+		<br /> 
+		<input
+			type="submit" value="Submit">
 
 	</form>
 </body>
