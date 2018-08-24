@@ -1,20 +1,20 @@
 package com.employee.service;
 
-import java.sql.SQLException;
+
 import java.util.List;
 
 import com.employee.model.Employee;
 
 public interface EmployeeService {
 
-	void create(Employee employee) throws SQLException;
+	public void create(Employee employee);
 
-	List<Employee> getAllEmployees()  throws SQLException;
+	public List getAllEmployees();
 
-	void delete(int id) throws SQLException;
+	public void delete(int id);
 
-	Employee getEmployeeById(int id) throws SQLException;
+	public Employee getEmployeeById(int id);
 
-	void update(Employee emp) throws SQLException;
+	public void update(Employee emp);
 
 }
