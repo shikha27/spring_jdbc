@@ -1,6 +1,6 @@
 package com.department.service;
 
-import java.sql.SQLException;
+
 import java.util.List;
 import java.util.Map;
 
@@ -8,14 +8,14 @@ import com.department.model.Department;
 
 
 public interface DepartmentService {
-	public void create(Department department) throws SQLException;
-	public List<Department> getAllDepartments() throws SQLException;
-	void delete(int id) throws SQLException;
+	public void create(Department department);
+	public List getAllDepartments();
+	void delete(int id);
 
-	Department getDepartmentById(int id) throws SQLException;
+	public Department getDepartmentById(int id);
 
-	void update(Department dept) throws SQLException;
+	void update(Department dept) ;
 	
-	public Map<Integer, String> getDepartmentIdAndName() throws SQLException;
+	public Map<Integer, String> getDepartmentIdAndName();
 
 }

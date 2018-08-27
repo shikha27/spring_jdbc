@@ -1,50 +1,55 @@
 package com.department.service;
 
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.department.dao.DepartmentRepository;
 import com.department.model.Department;
 
 @Service
-public class DepartmentServiceImpl implements DepartmentService{
-	
-@Autowired
+public class DepartmentServiceImpl implements DepartmentService {
+
+	@Autowired
 	DepartmentRepository departmentRepository;
 
-	public void create(Department department) throws SQLException {
+	@Transactional
+	public void create(Department department) {
 		departmentRepository.create(department);
-		
+
 	}
 
-	public List<Department> getAllDepartments() throws SQLException {
-		
+	@Transactional
+	public List getAllDepartments() {
+
 		return departmentRepository.getAllDepartments();
 	}
 
-	public void delete(int id) throws SQLException {
+	@Transactional
+	public void delete(int id) {
 		departmentRepository.delete(id);
-		
+
 	}
 
-	public Department getDepartmentById(int id) throws SQLException {
-		
+	@Transactional
+	public Department getDepartmentById(int id) {
+
 		return departmentRepository.getDepartmentById(id);
 	}
 
-	public void update(Department dept) throws SQLException {
+	@Transactional
+	public void update(Department dept) {
 		departmentRepository.update(dept);
-		
+
 	}
 
-	public Map<Integer, String> getDepartmentIdAndName() throws SQLException {
-		
+	@Transactional
+	public Map<Integer, String> getDepartmentIdAndName() {
+
 		return departmentRepository.getDepartmentIdAndName();
 	}
-	
 
 }
