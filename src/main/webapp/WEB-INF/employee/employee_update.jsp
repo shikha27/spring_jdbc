@@ -20,7 +20,7 @@ input[type=text] {
 			for="name">Name</label> <input type="text" value="${singleEmployee.name}" name="name"> <label
 			for="salary">Salary</label> <input type="text" value="${singleEmployee.salary}" name="salary">
 		
-			<label for="departmentid">Department Id</label> <input type="text" value="${singleEmployee.departmentid}"
+			<label for="departmentid">Department ID</label> <input type="text" value="${singleEmployee.departmentid}"
 			name="departmentid">
 			<br> <br> <input type="submit"
 			value="Update">

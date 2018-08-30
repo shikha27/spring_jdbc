@@ -6,8 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
-
+import org.hibernate.SQLQuery;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -21,6 +20,14 @@ public class DepartmentRepositoryImpl implements DepartmentRepository{
 	
 	@Autowired
 	private SessionFactory sessionFactory;
+	
+	public String getDepartmentNameById(int id) {
+		SQLQuery sqlQuery =  sessionFactory.getCurrentSession().createSQLQuery("select name from department where id="+id);
+	
+		System.out.println(sqlQuery);
+		
+		return sqlQuery.list().get(0).toString();
+	}
 
 	
 

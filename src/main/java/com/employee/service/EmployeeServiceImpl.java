@@ -21,8 +21,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 		employeeRepository.create(employee);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Transactional
-	public List getAllEmployees() {
+	public List<Employee> getAllEmployees() {
 		return employeeRepository.getAllEmployees();
 	}
 

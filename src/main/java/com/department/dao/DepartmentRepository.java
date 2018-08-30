@@ -16,4 +16,5 @@ public interface DepartmentRepository {
     public void delete(int id);
     public Department getDepartmentById(int id);
     public Map<Integer, String> getDepartmentIdAndName();
+	public String getDepartmentNameById(int departmentid);
 }

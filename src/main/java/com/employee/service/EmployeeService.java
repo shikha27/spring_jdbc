@@ -9,7 +9,7 @@ public interface EmployeeService {
 
 	public void create(Employee employee);
 
-	public List getAllEmployees();
+	public List<Employee> getAllEmployees();
 
 	public void delete(int id);
 

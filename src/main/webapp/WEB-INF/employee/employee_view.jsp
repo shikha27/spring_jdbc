@@ -14,8 +14,8 @@
 			<th>Id</th>
 			<th>Name</th>
 			<th>Salary</th>
-			
-			<th>Department Id</th>
+
+			<th>Department Name</th>
 			<th>Edit</th>
 			<th>Delete</th>
 		</tr>
@@ -25,7 +25,8 @@
 				<td>${employee.name}</td>
 				<td>${employee.salary}</td>
 
-				<td>${employee.departmentid}</td>
+
+				<td>${employee.departmentname}</td>
 				<td><a href="update/${employee.id}">Edit</a></td>
 				<td><a href="delete/${employee.id}">Delete</a></td>
 			</tr>
